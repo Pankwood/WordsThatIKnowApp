@@ -1,9 +1,9 @@
 import React from 'react';
 
-function ButtonLink() {
+function ButtonLink(props) {
     return(
-<a className="ButtonLink" href="/">
-    Novo Video
+<a className={props.className} href={props.href}>
+    {props.children}
 </a>
     );
 }

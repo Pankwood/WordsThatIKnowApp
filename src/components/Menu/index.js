@@ -10,8 +10,8 @@ function Menu(params) {
       <Link to="/">
         <img className="Logo" src={Logo} alt="Logo Words That I Know" />
       </Link>
-      <Button as={Link} className="ButtonLink" to="create/video">
-        Novo Video
+      <Button as={Link} className="ButtonLink" to="/create/video">
+        New Video
       </Button>
     </nav>
   );

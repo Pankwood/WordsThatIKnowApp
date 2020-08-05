@@ -29,8 +29,8 @@ function CreateCategory(params) {
         </label>
 
         <ul>
-          {categories.map((category) => {
-            return <li>{category}</li>;
+          {categories.map((category, index) => {
+            return <li key={`${category}${index}`}>{category}</li>;
           })}
         </ul>
         <button>Cadastrar</button>

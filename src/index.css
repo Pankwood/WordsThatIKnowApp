@@ -28,4 +28,5 @@ a {
   min-height: calc(100vh - var(--bodyPaddingTop));
   display: flex;
   flex-direction: column;
+  background-color: #141414;
 }

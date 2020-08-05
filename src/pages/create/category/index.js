@@ -11,7 +11,12 @@ function CreateCategory(params) {
     <PageDefault>
       <h1>Create Category {categoryName}</h1>
 
-      <form>
+      <form
+        onSubmit={function handleSubmit(params) {
+          params.preventDefault();
+          setCategories([...categories, categoryName]);
+        }}
+      >
         <label>
           Nome da Categoria:
           <input

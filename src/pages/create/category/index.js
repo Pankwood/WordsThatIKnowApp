@@ -3,6 +3,7 @@ import PageDefault from "../../../components/PageDefault";
 import { Link } from "react-router-dom";
 
 function CreateCategory(params) {
+  const [categories, setCategories] = useState(["Test", "OtherTest"]);
   const [categoryName, setCategoryName] = useState("Filmes");
   console.log("[categoryName]", categoryName);
 
@@ -22,6 +23,11 @@ function CreateCategory(params) {
           />
         </label>
 
+        <ul>
+          {categories.map((category) => {
+            return <li>{category}</li>;
+          })}
+        </ul>
         <button>Cadastrar</button>
       </form>
 

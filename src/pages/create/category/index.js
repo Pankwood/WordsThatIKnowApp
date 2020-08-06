@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PageDefault from "../../../components/PageDefault";
 import FormField from "../../../components/FormField";
+import Button from "../../../components/Button";
 
 function CreateCategory() {
   const defaultValues = {
@@ -25,7 +26,7 @@ function CreateCategory() {
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {values.name}</h1>
+      <h1>Create Category</h1>
 
       <form
         onSubmit={function handleSubmit(infosDoEvento) {
@@ -45,7 +46,7 @@ function CreateCategory() {
 
         <FormField
           label="Description"
-          type="????"
+          type="textarea"
           name="description"
           value={values.description}
           onChange={handleChange}
@@ -59,7 +60,7 @@ function CreateCategory() {
           onChange={handleChange}
         />
 
-        <button>Create</button>
+        <Button>Create</Button>
       </form>
 
       <ul>

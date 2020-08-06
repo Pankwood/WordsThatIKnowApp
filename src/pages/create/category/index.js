@@ -44,7 +44,7 @@ function CreateCategory() {
         />
 
         <FormField
-          label="Description:"
+          label="Description"
           type="????"
           name="description"
           value={values.description}

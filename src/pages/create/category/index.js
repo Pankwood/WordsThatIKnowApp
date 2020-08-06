@@ -64,13 +64,16 @@ function CreateCategory() {
 
       <div>
         <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Color</th>
-            </tr>
-          </thead>
+          {categories.length > 0 && (
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Color</th>
+              </tr>
+            </thead>
+          )}
+
           {categories.map((category, index) => {
             return (
               <tbody key={`${category}${index}`}>

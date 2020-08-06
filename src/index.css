@@ -24,6 +24,29 @@ a {
   color: inherit;
 }
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+td,
+th {
+  border: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid #53585d;
+  padding: 16px 16px;
+  margin-bottom: 45px;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #53585d;
+}
+
 #root {
   min-height: calc(100vh - var(--bodyPaddingTop));
   display: flex;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import PageDefault from "../../../components/PageDefault";
 import FormField from "../../../components/FormField";
 import Button from "../../../components/Button";
@@ -29,8 +28,8 @@ function CreateCategory() {
       <h1>Create Category</h1>
 
       <form
-        onSubmit={function handleSubmit(infosDoEvento) {
-          infosDoEvento.preventDefault();
+        onSubmit={function handleSubmit(params) {
+          params.preventDefault();
           setCategories([...categories, values]);
 
           setValues(defaultValues);
@@ -63,17 +62,28 @@ function CreateCategory() {
         <Button>Create</Button>
       </form>
 
-      <ul>
-        {categories.map((category, index) => {
-          return (
-            <li key={`${category}${index}`}>
-              {category.name} {category.description} {category.color}
-            </li>
-          );
-        })}
-      </ul>
-
-      <Link to="/">Home</Link>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Color</th>
+            </tr>
+          </thead>
+          {categories.map((category, index) => {
+            return (
+              <tbody key={`${category}${index}`}>
+                <tr>
+                  <td>{category.name}</td>
+                  <td>{category.description}</td>
+                  <td>{category.color}</td>
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
+      </div>
     </PageDefault>
   );
 }

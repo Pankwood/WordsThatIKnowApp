@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: var(--white);
 }
 
 :root {
@@ -33,7 +34,9 @@ table {
 }
 
 td,
-th {
+th,
+thead,
+tbody {
   border: 0;
   border-top: 4px solid transparent;
   border-bottom: 4px solid #53585d;
@@ -45,6 +48,10 @@ th {
 
 tr:nth-child(even) {
   background-color: #53585d;
+}
+
+li{
+  color: var(--white);
 }
 
 #root {

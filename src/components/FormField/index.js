@@ -2,6 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
+const ErrorSpan = styled.span`
+color: #2a7ae4;
+display: inline;
+`;
+
 const FormFieldWrapper = styled.div`
   position: relative;
   textarea {
@@ -71,23 +76,27 @@ const Input = styled.input`
   }}
 `;
 
-function FormField({ label, type, name, value, onChange }) {
+function FormField({ label, type, name, value, onChange, register, error }) {
   const isTypeTextArea = type === "textarea";
   const tag = isTypeTextArea ? "textarea" : "input";
 
   return (
-    <FormFieldWrapper>
-      <Label>
-        <Input
-          as={tag}
-          type={type}
-          value={value}
-          name={name}
-          onChange={onChange}
-        />
-        <Label.Text>{label}:</Label.Text>
-      </Label>
-    </FormFieldWrapper>
+    <>
+      <ErrorSpan>{error}</ErrorSpan>
+      <FormFieldWrapper>
+        <Label>
+          <Input
+            as={tag}
+            type={type}
+            value={value}
+            name={name}
+            onChange={onChange}
+            ref={register}
+          />
+          <Label.Text>{label}</Label.Text>
+        </Label>
+      </FormFieldWrapper>
+    </>
   );
 }
 
@@ -102,6 +111,7 @@ FormField.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  register: PropTypes.func
 };
 
 export default FormField;

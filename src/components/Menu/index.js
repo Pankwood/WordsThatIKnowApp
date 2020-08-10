@@ -13,6 +13,9 @@ function Menu(params) {
       <Button as={Link} className="ButtonLink" to="/create/category">
         New Category
       </Button>
+      <Button as={Link} className="ButtonLink" to="/contact">
+        Contact
+      </Button>
     </nav>
   );
 }

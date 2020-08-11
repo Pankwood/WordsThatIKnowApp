@@ -52,6 +52,7 @@ tr:nth-child(even) {
 
 li{
   color: var(--white);
+  list-style: none;
 }
 
 #root {

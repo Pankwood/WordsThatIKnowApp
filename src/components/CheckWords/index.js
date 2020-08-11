@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormField from "../../components/FormField";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
-import words from "../../data/words.json";
-
 
 
 function CheckWords(params) {
     const defaultValues = { name: "" };
     const [categories, setCategories] = useState([]);
     const [values, setValues] = useState(defaultValues);
-    const compareWords = words.map(a => a.word);
+    const [compareWords, setCompareWords] = useState([]);
     const { handleSubmit, register, errors } = useForm();
     const onSubmit = values => {
         categories.pop();
@@ -28,6 +26,16 @@ function CheckWords(params) {
     function handleChange(params) {
         setValue(params.target.getAttribute("name"), params.target.value);
     }
+
+    useEffect(() => {
+        const URL = "https://localhost:44312/Words";
+        fetch(URL)
+            .then(async (params) => {
+                const response = await params.json();
+                setCompareWords([...response].map(a => a.word));
+            });
+
+    }, [compareWords]);
 
     return (
         <>

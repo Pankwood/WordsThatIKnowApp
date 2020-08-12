@@ -11,7 +11,7 @@ function Home() {
       <BannerMain
         videoTitle={data.categories[0].videos[0].title}
         url={data.categories[0].videos[0].url}
-        videoDescription={"O que é o Front-End?"}
+        videoDescription={"Let's figure it out right now!"}
       />
       <CheckWords />
     </PageDefault>

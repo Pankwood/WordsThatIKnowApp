@@ -10,8 +10,8 @@
       },
       "videos": [
         {
-          "title": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
-          "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw"
+          "title": "How many words do you think you know?",
+          "url": "https://www.youtube.com/watch?v=pG-heIWfjO0&t=1s"
         },
         {
           "title": "SEO com React",
@@ -40,7 +40,7 @@
         {
           "title": "Base para aprender os frameworks",
           "url": "https://www.youtube.com/watch?v=QzDjdlF1BQI"
-        }        
+        }
       ]
     },
     {
@@ -66,7 +66,7 @@
         {
           "title": "API: Dicionário do Programador",
           "url": "https://www.youtube.com/watch?v=vGuqKIRWosk"
-        }, 
+        },
         {
           "title": "Usando Git Direito",
           "url": "https://www.youtube.com/watch?v=6OokP-NE49k"

@@ -38,7 +38,7 @@ Label.Text = styled.span`
 `;
 
 const Input = styled.input`
-  background: #53585d;
+  background: var(--blackLighter);
   color: #f5f5f5;
   display: block;
   width: 100%;
@@ -48,7 +48,7 @@ const Input = styled.input`
   outline: 0;
   border: 0;
   border-top: 4px solid transparent;
-  border-bottom: 4px solid #53585d;
+  border-bottom: 4px solid var(--blackLighter);
 
   padding: 16px 16px;
   margin-bottom: 45px;

@@ -10,9 +10,6 @@ function Menu(params) {
       <Link to="/">
         <img className="Logo" src={Logo} alt="Logo Words That I Know" />
       </Link>
-      <Button as={Link} className="ButtonLink" to="/create/category">
-        New Category
-      </Button>
       <Button as={Link} className="ButtonLink" to="/contact">
         Contact
       </Button>

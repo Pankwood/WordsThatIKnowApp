@@ -18,15 +18,12 @@ function CheckWords(params) {
 
     function handlePostSubmit(params) {
         params.preventDefault();
-        alert('Video Cadastrado com sucesso!!!1!');
-
         wordsRepository.create({
-            word: "test1",
+            word: "test2",
             box: 0
         })
             .then(() => {
-                console.log('Cadastrou com sucesso!');
-                //history.push('/');
+                //TODO: Msg of ok or error
             });
     }
 
@@ -53,7 +50,7 @@ function CheckWords(params) {
         <>
             <>
                 <p>First step:</p>
-                <form
+                <form key="formGet"
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <FormField
@@ -77,7 +74,7 @@ function CheckWords(params) {
                 )}
                 {
                     categories.map((item, index) =>
-                        <form onSubmit={handlePostSubmit}>
+                        <form onSubmit={handlePostSubmit} key="formPost">
                             <ul key={`${item}${index}`}>
                                 {
                                     item.name.split(" ").map((sub, subindex) =>

@@ -17,19 +17,19 @@ function getAll() {
         });
 }
 
-async function create(objetoDoVideo) {
-    const respostaDoServidor = await fetch(`${URL_API_WORDS}`, {
+async function create(params) {
+    const response = await fetch(`${URL_API_WORDS}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify([objetoDoVideo]),
+        body: JSON.stringify([params]),
     });
-    if (respostaDoServidor.ok) {
-        const resposta = await respostaDoServidor.json();
+    if (response.ok) {
+        const resposta = await response.json();
         return resposta;
     }
-    throw new Error('Não foi possível cadastrar os dados :(');
+    throw new Error('Error to save words');
 }
 
 export default {

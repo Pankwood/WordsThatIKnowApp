@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import FormField from "../../components/FormField";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
+import wordsRepository from '../repositories/words';
+
 
 
 function CheckWords(params) {
@@ -28,14 +30,12 @@ function CheckWords(params) {
     }
 
     useEffect(() => {
-        const URL = "https://localhost:44312/Words";
-        fetch(URL)
-            .then(async (params) => {
-                const response = await params.json();
-                setCompareWords([...response].map(a => a.word));
+        wordsRepository
+            .getAll()
+            .then((params) => {
+                setCompareWords([...params].map(a => a.word));
             });
-
-    }, [compareWords]);
+    }, []);
 
     return (
         <>

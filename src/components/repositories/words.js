@@ -17,6 +17,22 @@ function getAll() {
         });
 }
 
+async function create(objetoDoVideo) {
+    const respostaDoServidor = await fetch(`${URL_API_WORDS}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify([objetoDoVideo]),
+    });
+    if (respostaDoServidor.ok) {
+        const resposta = await respostaDoServidor.json();
+        return resposta;
+    }
+    throw new Error('Não foi possível cadastrar os dados :(');
+}
+
 export default {
     getAll,
+    create,
 };

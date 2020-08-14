@@ -4,8 +4,6 @@ import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import wordsRepository from '../repositories/words';
 
-
-
 function CheckWords(params) {
     const defaultValues = { name: "" };
     const [categories, setCategories] = useState([]);
@@ -16,6 +14,20 @@ function CheckWords(params) {
         categories.pop();
         setCategories([...categories, values]);
         setValues(defaultValues);
+    }
+
+    function handlePostSubmit(params) {
+        params.preventDefault();
+        alert('Video Cadastrado com sucesso!!!1!');
+
+        wordsRepository.create({
+            word: "test1",
+            box: 0
+        })
+            .then(() => {
+                console.log('Cadastrou com sucesso!');
+                //history.push('/');
+            });
     }
 
     function setValue(key, value) {
@@ -65,30 +77,33 @@ function CheckWords(params) {
                 )}
                 {
                     categories.map((item, index) =>
-                        <ul key={`${item}${index}`}>
-                            {
-                                item.name.split(" ").map((sub, subindex) =>
-                                    <li key={`${sub}${subindex}`}> {
-                                        <>
-                                            {compareWords.includes(sub.trim())
-                                                ?
-                                                <div>
-                                                    <input type="checkbox" id={`${sub}${subindex}`} name={`${sub}${subindex}`} value={sub} defaultChecked></input>
-                                                    <label htmlFor={`${sub}${subindex}`} style={{ color: "red" }}> {sub}</label>
-                                                </div>
-                                                :
-                                                <>
-                                                    <input type="checkbox" id={`${sub}${subindex}`} name={`${sub}${subindex}`} value={sub}></input>
-                                                    <label htmlFor={`${sub}${subindex}`}> {sub}</label>
-                                                </>
-                                            }
-                                        </>
-                                    }
-                                    </li>)
-                            }
+                        <form onSubmit={handlePostSubmit}>
+                            <ul key={`${item}${index}`}>
+                                {
+                                    item.name.split(" ").map((sub, subindex) =>
+                                        <li key={`${sub}${subindex}`}> {
+                                            <>
+                                                {compareWords.includes(sub.trim())
+                                                    ?
+                                                    <div>
+                                                        <input type="checkbox" id={`${sub}${subindex}`} name="ckbWord" value={sub} defaultChecked></input>
+                                                        <label htmlFor={`${sub}${subindex}`} style={{ color: "red" }}> {sub}</label>
+                                                    </div>
+                                                    :
+                                                    <>
+                                                        <input type="checkbox" id={`${sub}${subindex}`} name="ckbWord" value={sub}></input>
+                                                        <label htmlFor={`${sub}${subindex}`}> {sub}</label>
+                                                    </>
+                                                }
+                                            </>
+                                        }
+                                        </li>)
+                                }
 
 
-                        </ul>
+                            </ul>
+                            <Button>Save</Button>
+                        </form>
                     )
                 }
             </>

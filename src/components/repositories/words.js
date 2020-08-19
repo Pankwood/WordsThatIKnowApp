@@ -23,7 +23,7 @@ async function create(params) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify([params]),
+        body: JSON.stringify(params),
     });
     if (response.ok) {
         const resposta = await response.json();

@@ -16,12 +16,21 @@ function CheckWords(params) {
         setValues(defaultValues);
     }
 
+    function getWords() {
+        const words = document.forms[1];
+        var wordsArray = [];
+        for (var i = 0; i < words.length; i++) {
+            if (words[i].checked) {
+                wordsArray.push({ word: words[i].value, box: 0 });
+            }
+        }
+        return wordsArray;
+    }
+
     function handlePostSubmit(params) {
         params.preventDefault();
-        wordsRepository.create({
-            word: "test2",
-            box: 0
-        })
+        const words = getWords();
+        wordsRepository.create(words)
             .then(() => {
                 //TODO: Msg of ok or error
             });

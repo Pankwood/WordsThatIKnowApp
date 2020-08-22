@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormField from "../../components/FormField";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
@@ -14,11 +14,6 @@ function CheckWords(params) {
         categories.pop();
         setCategories([...categories, values]);
         setValues(defaultValues);
-        wordsRepository
-            .getAll()
-            .then((params) => {
-                setCompareWords([...categories].map(a => a.word));
-            });
     }
 
     function getWords() {
@@ -51,6 +46,15 @@ function CheckWords(params) {
     function handleChange(params) {
         setValue(params.target.getAttribute("name"), params.target.value);
     }
+
+    useEffect(() => {
+        wordsRepository
+            .getAll()
+            .then((params) => {
+                setCompareWords([...params].map(a => a.word));
+            });
+    }, []);
+
 
     return (
         <>

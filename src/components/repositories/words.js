@@ -1,39 +1,44 @@
 import config from '../../config';
 import CustomNotification from '../CustomNotification';
+import { errorCheckWordsGet, errorCheckWordsPost, errorEmptyValues, successCheckWordsPost } from '../CustomNotification/CustomMessage';
 
 const URL_API_WORDS = `${config.URL_API}/words`;
 
 function getAll() {
     return fetch(`${URL_API_WORDS}`)
         .then(async (params) => {
-
             if (params.ok) {
                 const response = await params.json();
                 return response;
             }
-            CustomNotification("Error to GET known words from server", "error");
-
-        })
-        .catch(error => {
-            CustomNotification("Error to GET known words from server", "error");
+            else {
+                CustomNotification(errorCheckWordsGet, "error");
+            }
         });
 }
 
 async function create(params) {
-    const response = await fetch(`${URL_API_WORDS}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
-    });
-    if (response.ok) {
-        const resposta = await response.json();
-        CustomNotification("Words included in your dictionary", "success");
-        return resposta;
-    }
-    CustomNotification("Error to POST known words to server. ", "error");
+    (params && params.length) ?
+        await fetch(`${URL_API_WORDS}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(params),
+        }).then((response) => {
+            if (response.ok) {
+                CustomNotification(successCheckWordsPost, "success");
+                const resposta = response.json();
+                return resposta;
+            }
+            else {
+                CustomNotification(errorCheckWordsPost, "error");
+            }
+        })
+        :
+        CustomNotification(errorEmptyValues, "error");
 }
+
 
 export default {
     getAll,

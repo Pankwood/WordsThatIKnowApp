@@ -1,4 +1,5 @@
 import config from '../../config';
+import CustomNotification from '../CustomNotification';
 
 const URL_API_WORDS = `${config.URL_API}/words`;
 
@@ -10,10 +11,11 @@ function getAll() {
                 const response = await params.json();
                 return response;
             }
+            CustomNotification("Error to GET known words from server", "error");
 
         })
         .catch(error => {
-            throw (error);
+            CustomNotification("Error to GET known words from server", "error");
         });
 }
 
@@ -27,9 +29,10 @@ async function create(params) {
     });
     if (response.ok) {
         const resposta = await response.json();
+        CustomNotification("Words included in your dictionary", "success");
         return resposta;
     }
-    throw new Error('Error to save words');
+    CustomNotification("Error to POST known words to server. ", "error");
 }
 
 export default {

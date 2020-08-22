@@ -13,6 +13,8 @@
   --white: #ffffff;
   --frontEnd: #6bd1ff;
   --backEnd: #00c86f;
+  --colorSuccess: #07bc0c;
+  --colorError: #e74c3c;
 }
 
 html,

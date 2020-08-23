@@ -14,6 +14,14 @@ function CheckWords(params) {
         categories.pop();
         setCategories([...categories, values]);
         setValues(defaultValues);
+        wordsRepository
+            .getAll()
+            .then((values) => {
+                setCompareWords([...values].map(a => a.word));
+            }
+            ).catch(() => {
+                //
+            });
     }
 
     function getWords() {
@@ -32,7 +40,10 @@ function CheckWords(params) {
         const words = getWords();
         wordsRepository.create(words)
             .then(() => {
-                //TODO: Msg of ok or error
+
+            })
+            .catch(() => {
+
             });
     }
 
@@ -47,13 +58,13 @@ function CheckWords(params) {
         setValue(params.target.getAttribute("name"), params.target.value);
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         wordsRepository
             .getAll()
             .then((params) => {
                 setCompareWords([...params].map(a => a.word));
             });
-    }, []);
+    }, []);*/
 
 
     return (

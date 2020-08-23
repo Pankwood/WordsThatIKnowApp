@@ -6,14 +6,16 @@ const URL_API_WORDS = `${config.URL_API}/words`;
 
 function getAll() {
     return fetch(`${URL_API_WORDS}`)
-        .then(async (params) => {
+        .then((params) => {
             if (params.ok) {
-                const response = await params.json();
+                const response = params.json();
                 return response;
             }
             else {
                 CustomNotification(errorCheckWordsGet, "error");
             }
+        }).catch(() => {
+            CustomNotification(errorCheckWordsPost, "error");
         });
 }
 
@@ -35,6 +37,9 @@ async function create(params) {
                 CustomNotification(errorCheckWordsPost, "error");
             }
         })
+            .catch(() => {
+                CustomNotification(errorCheckWordsPost, "error");
+            })
         :
         CustomNotification(errorEmptyValues, "error");
 }

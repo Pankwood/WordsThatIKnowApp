@@ -15,7 +15,7 @@ function getAll() {
                 CustomNotification(errorCheckWordsGet, "error");
             }
         }).catch(() => {
-            CustomNotification(errorCheckWordsPost, "error");
+            CustomNotification(errorCheckWordsGet, "error");
         });
 }
 

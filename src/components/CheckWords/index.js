@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FormField from "../../components/FormField";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import wordsRepository from '../repositories/words';
 
-function CheckWords(params) {
+function CheckWords() {
     const defaultValues = { name: "" };
     const [categories, setCategories] = useState([]);
     const [values, setValues] = useState(defaultValues);
@@ -20,7 +20,7 @@ function CheckWords(params) {
                 setCompareWords([...values].map(a => a.word));
             }
             ).catch(() => {
-                //
+
             });
     }
 
@@ -57,15 +57,6 @@ function CheckWords(params) {
     function handleChange(params) {
         setValue(params.target.getAttribute("name"), params.target.value);
     }
-
-    /*useEffect(() => {
-        wordsRepository
-            .getAll()
-            .then((params) => {
-                setCompareWords([...params].map(a => a.word));
-            });
-    }, []);*/
-
 
     return (
         <>

@@ -11,7 +11,7 @@ function Footer() {
           Dan Debiazi
         </a>
       </p>
-      <p>version 0.5.{process.env.VERSIOM}</p>
+      <p>version 0.6.{process.env.VERSION}</p>
     </FooterBase>
   );
 }

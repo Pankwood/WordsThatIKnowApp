@@ -11,7 +11,7 @@ function Footer() {
           Dan Debiazi
         </a>
       </p>
-      <p>version 0.8.{process.env.REACT_APP_GIT_SHA}</p>
+      <p>version 0.2.{process.env.REACT_APP_GIT_SHA}</p>
     </FooterBase>
   );
 }

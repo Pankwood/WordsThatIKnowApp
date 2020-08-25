@@ -1,6 +1,6 @@
 import React from 'react';
-import { FooterBase } from './styles';
-import git from '../../webpack.config';
+import { FooterBase } from './styles'
+
 
 function Footer() {
   return (
@@ -11,7 +11,7 @@ function Footer() {
           Dan Debiazi
         </a>
       </p>
-      <p>version 0.2.{git.plugins.values}</p>
+      <p>version 0.3.{process.VERSIOM}</p>
     </FooterBase>
   );
 }

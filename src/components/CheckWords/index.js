@@ -3,6 +3,7 @@ import FormField from "../../components/FormField";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import wordsRepository from '../repositories/words';
+import './style.css';
 
 function CheckWords() {
     const defaultValues = { name: "" };
@@ -61,7 +62,7 @@ function CheckWords() {
     return (
         <>
             <>
-                <p>First step:</p>
+                <h3 title="Paste your text here">First Step:</h3>
                 <form key="formGet"
                     onSubmit={handleSubmit(onSubmit)}
                 >
@@ -82,22 +83,22 @@ function CheckWords() {
             </>
             <>
                 {categories.length > 0 && (
-                    <p>Second step: Check the words you already know</p>
+                    <h3 title="Check the words you already know">Second Step:</h3>
                 )}
                 {
                     categories.map((item, index) =>
                         <form onSubmit={handlePostSubmit} key="formPost">
-                            <ul key={`${item}${index}`}>
+                            <ul key={`${item}${index}`} className="ks-cboxtags">
                                 {
                                     item.name.split(" ").map((sub, subindex) =>
                                         <li key={`${sub}${subindex}`}> {
                                             <>
                                                 {compareWords.includes(sub.trim())
                                                     ?
-                                                    <div>
+                                                    <>
                                                         <input type="checkbox" id={`${sub}${subindex}`} name="ckbWord" value={sub} defaultChecked></input>
-                                                        <label htmlFor={`${sub}${subindex}`} style={{ color: "red" }}> {sub}</label>
-                                                    </div>
+                                                        <label htmlFor={`${sub}${subindex}`}> {sub}</label>
+                                                    </>
                                                     :
                                                     <>
                                                         <input type="checkbox" id={`${sub}${subindex}`} name="ckbWord" value={sub}></input>

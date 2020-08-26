@@ -14,7 +14,11 @@
   --frontEnd: #6bd1ff;
   --backEnd: #00c86f;
   --colorSuccess: #07bc0c;
+  --colorSuccessBorder: #06960A;
   --colorError: #e74c3c;
+  --checkboxCheckedBorder: #00c86f;
+  --checkboxChecked: #07bc0c;
+  --colorSuccessBorder: #06960A;
 }
 
 html,
@@ -25,11 +29,6 @@ body {
 
 a {
   color: inherit;
-}
-
-li{
-  color: var(--white);
-  list-style: none;
 }
 
 #root {

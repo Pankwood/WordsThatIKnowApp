@@ -1,0 +1,20 @@
+{
+    "language": [
+        {
+            "CheckWords_FirstStep_content": "First Step:",
+            "CheckWords_FirstStep_title": "Paste your text here",
+            "CheckWords_FirstStep_button": "Check it!",
+            "CheckWords_SecondStep_content": "Second Step:",
+            "CheckWords_SecondStep_title": "Check the words you already know",
+            "CheckWords_SecondStep_button": "Save word(s)"
+        },
+        {
+            "CheckWords_FirstStep_content": "Primeiro Passo:",
+            "CheckWords_FirstStep_title": "Cole o seu texto aqui",
+            "CheckWords_FirstStep_button": "Verificar texto",
+            "CheckWords_SecondStep_content": "Segundo Passo:",
+            "CheckWords_SecondStep_title": "Marque as palavras que você já conhece",
+            "CheckWords_SecondStep_button": "Salvar palavra(s)"
+        }
+    ]
+}

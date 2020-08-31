@@ -3,10 +3,13 @@ import FormField from "../../components/FormField";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import wordsRepository from '../repositories/words';
+import { LocaleContext } from '../../LocaleContext.js';
+import Content from '../../data/Content/content.json';
 import './style.css';
 
 function CheckWords() {
     const defaultValues = { name: "" };
+    const [locale] = React.useContext(LocaleContext);
     const [categories, setCategories] = useState([]);
     const [values, setValues] = useState(defaultValues);
     const [compareWords, setCompareWords] = useState([]);
@@ -62,13 +65,13 @@ function CheckWords() {
     return (
         <>
             <>
-                <h3 title="Paste your text here">First Step:</h3>
+                <h3 title={Content.language[locale].CheckWords_FirstStep_title}>{Content.language[locale].CheckWords_FirstStep_content}</h3>
                 <form key="formGet"
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <FormField
                         error={errors.email && errors.email.message}
-                        label="Paste your text here..."
+                        label={Content.language[locale].CheckWords_FirstStep_title}
                         type="textarea"
                         name="name"
                         value={values.name}
@@ -78,12 +81,12 @@ function CheckWords() {
                         })}
                     />
 
-                    <Button>Check it!</Button>
+                    <Button>{Content.language[locale].CheckWords_FirstStep_button}</Button>
                 </form>
             </>
             <>
                 {categories.length > 0 && (
-                    <h3 title="Check the words you already know">Second Step:</h3>
+                    <h3 title="Check the words you already know">{Content.language[locale].CheckWords_SecondStep_content}</h3>
                 )}
                 {
                     categories.map((item, index) =>
@@ -112,7 +115,7 @@ function CheckWords() {
 
 
                             </ul>
-                            <Button>Save</Button>
+                            <Button>{Content.language[locale].CheckWords_SecondStep_button}</Button>
                         </form>
                     )
                 }

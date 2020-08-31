@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-
+import { LocaleContext } from '../../../../../LocaleContext.js';
 
 const Ul = styled.ul`
   list-style: none;
@@ -31,16 +31,24 @@ font-family: inherit;
   }
 `;
 
+
 const RightNav = ({ open }) => {
+  const [locale, setLocale] = React.useContext(LocaleContext);
+  const nextLocale = locale === 0 ? 1 : 0;
   return (
-    <Ul open={open}>
-      <li>
-        <Link className="RightNav" to="/"> Home</Link>
-      </li>
-      <li>
-        <Link className="RightNav" to="/contact"> Contact</Link>
-      </li>
-    </Ul>
+    <>
+      <Ul open={open}>
+        <li>
+          <Link className="RightNav" to="/"> Home</Link>
+        </li>
+        <li>
+          <Link className="RightNav" to="/contact"> Contact</Link>
+        </li>
+      </Ul>
+      <button style={{ color: "black" }} onClick={() => setLocale(nextLocale)}>
+        Change language to {nextLocale}
+      </button>
+    </>
   )
 }
 

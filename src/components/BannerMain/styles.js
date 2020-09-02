@@ -58,6 +58,7 @@ ContentAreaContainer.Title = styled.h2`
   line-height: 1;
   margin-top: 0;
   margin-bottom: 32px;
+  padding-right: 5%;
 
   @media (max-width: 800px) {
     font-size: 32px;

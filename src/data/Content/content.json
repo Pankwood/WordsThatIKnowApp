@@ -6,7 +6,10 @@
             "CheckWords_FirstStep_button": "Check it!",
             "CheckWords_SecondStep_content": "Second Step:",
             "CheckWords_SecondStep_title": "Check the words you already know",
-            "CheckWords_SecondStep_button": "Save word(s)"
+            "CheckWords_SecondStep_button": "Save word(s)",
+            "Home_title": "How many words in English do you think you know?",
+            "Home_video": "https://www.youtube.com/watch?v=iMaqzAkgUIs",
+            "Home_subtitle": "Let's figure it out righ now!"
         },
         {
             "CheckWords_FirstStep_content": "Primeiro Passo:",
@@ -14,7 +17,10 @@
             "CheckWords_FirstStep_button": "Verificar texto",
             "CheckWords_SecondStep_content": "Segundo Passo:",
             "CheckWords_SecondStep_title": "Marque as palavras que você já conhece",
-            "CheckWords_SecondStep_button": "Salvar palavra(s)"
+            "CheckWords_SecondStep_button": "Salvar palavra(s)",
+            "Home_title": "Quantas palavras em Inglês você acha que sabe?",
+            "Home_video": "https://www.youtube.com/watch?v=iMaqzAkgUIs",
+            "Home_subtitle": "Que tal descobrirmos agora mesmo?"
         }
     ]
 }

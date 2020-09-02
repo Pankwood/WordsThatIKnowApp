@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { LocaleContext } from '../../../../../LocaleContext.js';
+import flagbr from '../../../../../assets/img/flag-br.svg';
+import flagca from '../../../../../assets/img/flag-ca.svg';
 
 const Ul = styled.ul`
   list-style: none;
@@ -11,8 +13,13 @@ const Ul = styled.ul`
     padding: 18px 10px;
   }
   a {
-text-decoration: inherit;
-font-family: inherit;
+    text-decoration: inherit;
+    font-family: inherit;
+  }
+  img {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -33,8 +40,14 @@ font-family: inherit;
 
 
 const RightNav = ({ open }) => {
+  // eslint-disable-next-line
   const [locale, setLocale] = React.useContext(LocaleContext);
-  const nextLocale = locale === 0 ? 1 : 0;
+
+  function handleMouseLeave() {
+    localStorage.setItem("language", locale)
+  }
+
+  localStorage.setItem("language", locale);
   return (
     <>
       <Ul open={open}>
@@ -44,10 +57,13 @@ const RightNav = ({ open }) => {
         <li>
           <Link className="RightNav" to="/contact"> Contact</Link>
         </li>
+        <li>
+          <img className="RightNav" src={flagca} alt="English" title="English" onClick={() => setLocale(0)} onMouseLeave={handleMouseLeave} />
+        </li>
+        <li>
+          <img className="RightNav" src={flagbr} alt="Português" title="Português" onClick={() => setLocale(1)} onMouseLeave={handleMouseLeave} />
+        </li>
       </Ul>
-      <button style={{ color: "black" }} onClick={() => setLocale(nextLocale)}>
-        Change language to {nextLocale}
-      </button>
     </>
   )
 }

@@ -1,17 +1,19 @@
 import React from "react";
 import BannerMain from "../../components/BannerMain";
-import data from "../../data/data.json";
+import Content from '../../data/Content/content.json';
 import CheckWords from "../../components/CheckWords";
 import PageDefault from "../../components/PageDefault";
+import { LocaleContext } from '../../LocaleContext.js';
 
 function Home() {
+  const [locale] = React.useContext(LocaleContext);
 
   return (
     <PageDefault>
       <BannerMain
-        videoTitle={data.categories[0].videos[0].title}
-        url={data.categories[0].videos[0].url}
-        videoDescription={"Let's figure it out right now!"}
+        videoTitle={Content.language[locale].Home_title}
+        url={Content.language[locale].Home_video}
+        videoDescription={Content.language[locale].Home_subtitle}
       />
       <CheckWords />
     </PageDefault>

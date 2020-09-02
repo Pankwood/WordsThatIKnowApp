@@ -9,7 +9,19 @@
             "CheckWords_SecondStep_button": "Save word(s)",
             "Home_title": "How many words in English do you think you know?",
             "Home_video": "https://www.youtube.com/watch?v=iMaqzAkgUIs",
-            "Home_subtitle": "Let's figure it out righ now!"
+            "Home_subtitle": "Let's figure it out righ now!",
+            "Banner_button": "Watch",
+            "Navigation_menu1": "Home",
+            "Navigation_menu2": "Contact",
+            "Footer_version": "version",
+            "Contact_title": "Contact",
+            "Contact_Form_email": "Your email",
+            "Contact_Form_subject": "Subject",
+            "Contact_Form_body": "Write something...",
+            "Contact_Form_erro1": "Required",
+            "Contact_Form_erro2": "Invalid email address",
+            "Contact_Form_erro3": "Minimum 80 characters",
+            "Contact_button": "Send"
         },
         {
             "CheckWords_FirstStep_content": "Primeiro Passo:",
@@ -20,7 +32,19 @@
             "CheckWords_SecondStep_button": "Salvar palavra(s)",
             "Home_title": "Quantas palavras em Inglês você acha que sabe?",
             "Home_video": "https://www.youtube.com/watch?v=iMaqzAkgUIs",
-            "Home_subtitle": "Que tal descobrirmos agora mesmo?"
+            "Home_subtitle": "Que tal descobrirmos agora mesmo?",
+            "Banner_button": "Assista",
+            "Navigation_menu1": "Home",
+            "Navigation_menu2": "Contato",
+            "Footer_version": "versão",
+            "Contact_title": "Contato",
+            "Contact_Form_email": "Email",
+            "Contact_Form_subject": "Assunto",
+            "Contact_Form_body": "Escreva algo aqui...",
+            "Contact_Form_erro1": "Campo obrigatório",
+            "Contact_Form_erro2": "Formato de email inválido",
+            "Contact_Form_erro3": "Mínimo 80 caracteres",
+            "Contact_button": "Enviar"
         }
     ]
 }

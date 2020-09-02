@@ -1,8 +1,11 @@
 import React from 'react';
 import { FooterBase } from './styles'
+import { LocaleContext } from '../../LocaleContext';
+import Content from '../../data/Content/content.json';
 
 
 function Footer() {
+  const [locale] = React.useContext(LocaleContext);
   return (
     <FooterBase>
       <p>
@@ -11,7 +14,7 @@ function Footer() {
           Dan Debiazi
         </a>
       </p>
-      <p>version 0.2.{process.env.REACT_APP_GIT_SHA}</p>
+      <p>{Content.language[locale].Footer_version} 0.2.{process.env.REACT_APP_GIT_SHA}</p>
     </FooterBase>
   );
 }

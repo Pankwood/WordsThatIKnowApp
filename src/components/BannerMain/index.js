@@ -2,6 +2,8 @@ import React from 'react';
 import VideoIframeResponsive from './components/VideoIframeResponsive';
 import { BannerMainContainer, ContentAreaContainer, WatchButton } from './styles';
 import BackgroundMain from '../../assets/img/BackgroundMainSmall.jpg';
+import Content from '../../data/Content/content.json';
+import { LocaleContext } from '../../LocaleContext';
 
 function getYouTubeId(youtubeURL) {
   return youtubeURL
@@ -17,6 +19,7 @@ export default function BannerMain({
   url,
 }) {
   const youTubeID = getYouTubeId(url);
+  const [locale] = React.useContext(LocaleContext);
 
   return (
     <BannerMainContainer backgroundImage={BackgroundMain}>
@@ -36,7 +39,7 @@ export default function BannerMain({
             youtubeID={youTubeID}
           />
           <WatchButton>
-            Watch
+            {Content.language[locale].Banner_button}
           </WatchButton>
         </ContentAreaContainer.Item>
       </ContentAreaContainer>

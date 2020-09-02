@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { LocaleContext } from '../../../../../LocaleContext.js';
+import Content from '../../../../../data/Content/content.json';
 import flagbr from '../../../../../assets/img/flag-br.svg';
 import flagca from '../../../../../assets/img/flag-ca.svg';
 
@@ -52,10 +53,10 @@ const RightNav = ({ open }) => {
     <>
       <Ul open={open}>
         <li>
-          <Link className="RightNav" to="/"> Home</Link>
+          <Link className="RightNav" to="/">{Content.language[locale].Navigation_menu1}</Link>
         </li>
         <li>
-          <Link className="RightNav" to="/contact"> Contact</Link>
+          <Link className="RightNav" to="/contact"> {Content.language[locale].Navigation_menu2}</Link>
         </li>
         <li>
           <img className="RightNav" src={flagca} alt="English" title="English" onClick={() => setLocale(0)} onMouseLeave={handleMouseLeave} />

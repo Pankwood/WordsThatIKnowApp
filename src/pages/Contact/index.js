@@ -3,6 +3,8 @@ import PageDefault from "../../components/PageDefault";
 import FormField from '../../components/FormField';
 import Button from '../../components/Button';
 import { useForm } from "react-hook-form";
+import Content from '../../data/Content/content.json';
+import { LocaleContext } from '../../LocaleContext';
 
 function Contact(params) {
 
@@ -19,6 +21,7 @@ function Contact(params) {
         });
     }
 
+    const [locale] = React.useContext(LocaleContext);
     const [values, setValues] = useState(defaultValues);
     const { handleSubmit, register, errors } = useForm();
     const onSubmit = values => {
@@ -31,56 +34,56 @@ function Contact(params) {
     }
     return (
         <PageDefault>
-            <h1>Contact</h1>
+            <h1>{Content.language[locale].Contact_title}</h1>
 
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <FormField
                     error={errors.email && errors.email.message}
-                    label="Your email"
+                    label={Content.language[locale].Contact_Form_email}
                     type="text"
                     name="email"
                     value={values.email}
                     onChange={handleChange}
                     register={register({
-                        required: "Requiressssssd",
+                        required: Content.language[locale].Contact_Form_erro1,
                         pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: "invalid email address"
+                            message: Content.language[locale].Contact_Form_erro2
                         }
                     })}
                 />
 
                 <FormField
                     error={errors.subject && errors.subject.message}
-                    label="Subject"
+                    label={Content.language[locale].Contact_Form_subject}
                     type="text"
                     name="subject"
                     value={values.subject}
                     onChange={handleChange}
                     register={register({
-                        required: "Required"
+                        required: Content.language[locale].Contact_Form_erro1
                     })}
                 />
 
                 <FormField
                     error={errors.body && errors.body.message}
-                    label="Write something..."
+                    label={Content.language[locale].Contact_Form_body}
                     type="textarea"
                     name="body"
                     value={values.body}
                     onChange={handleChange}
                     register={register({
-                        required: "Required",
+                        required: Content.language[locale].Contact_Form_erro1,
                         minLength: {
                             value: 80,
-                            message: "Minimum 80 characters"
+                            message: Content.language[locale].Contact_Form_erro3
                         }
                     })}
                 />
 
 
-                <Button>Send</Button>
+                <Button>{Content.language[locale].Contact_button}</Button>
             </form>
 
         </PageDefault>

@@ -1,26 +1,35 @@
 import config from '../../config';
 import CustomNotification from '../CustomNotification';
-import { errorCheckWordsGet, errorCheckWordsPost, errorEmptyValues, successCheckWordsPost } from '../CustomNotification/CustomMessage';
+import Content from '../../data/Content/content.json';
 
 const URL_API_WORDS = `${config.URL_API}/words`;
 
 function getAll() {
-    return fetch(`${URL_API_WORDS}`)
-        .then((params) => {
-            if (params.ok) {
-                const response = params.json();
-                return response;
-            }
-            else {
-                CustomNotification(errorCheckWordsGet, "error");
-            }
-        }).catch(() => {
-            CustomNotification(errorCheckWordsGet, "error");
-        });
+    //Workaround for no-React function
+    //const locale = React.useContext(LocaleContext);
+    const locale = localStorage.getItem("language");
+    return (
+        fetch(`${URL_API_WORDS}`)
+            .then((params) => {
+                if (params.ok) {
+                    const response = params.json();
+                    return response;
+                }
+                else {
+                    CustomNotification(Content.language[locale].CustomMessage02, "error");
+                }
+            }).catch(() => {
+                CustomNotification(Content.language[locale].CustomMessage02, "error");
+            })
+    )
 }
 
 async function create(params) {
-    (params && params.length) ?
+    //Workaround for no-React function
+    //const locale = React.useContext(LocaleContext);
+    const locale = localStorage.getItem("language");
+    (params && params.length)
+        ?
         await fetch(`${URL_API_WORDS}`, {
             method: 'POST',
             headers: {
@@ -29,19 +38,19 @@ async function create(params) {
             body: JSON.stringify(params),
         }).then((response) => {
             if (response.ok) {
-                CustomNotification(successCheckWordsPost, "success");
+                CustomNotification(Content.language[locale].CustomMessage04, "success");
                 const resposta = response.json();
                 return resposta;
             }
             else {
-                CustomNotification(errorCheckWordsPost, "error");
+                CustomNotification(Content.language[locale].CustomMessage01, "error");
             }
         })
             .catch(() => {
-                CustomNotification(errorCheckWordsPost, "error");
+                CustomNotification(Content.language[locale].CustomMessage01, "error");
             })
         :
-        CustomNotification(errorEmptyValues, "error");
+        CustomNotification(Content.language[locale].CustomMessage03, "error");
 }
 
 

@@ -21,7 +21,11 @@
             "Contact_Form_erro1": "Required",
             "Contact_Form_erro2": "Invalid email address",
             "Contact_Form_erro3": "Minimum 80 characters",
-            "Contact_button": "Send"
+            "Contact_button": "Send",
+            "CustomMessage01": "Error to save words in collection",
+            "CustomMessage02": "Error to get your saved words",
+            "CustomMessage03": "You must choose at least one word",
+            "CustomMessage04": "Word(s) saved!"
         },
         {
             "CheckWords_FirstStep_content": "Primeiro Passo:",
@@ -44,7 +48,11 @@
             "Contact_Form_erro1": "Campo obrigatório",
             "Contact_Form_erro2": "Formato de email inválido",
             "Contact_Form_erro3": "Mínimo 80 caracteres",
-            "Contact_button": "Enviar"
+            "Contact_button": "Enviar",
+            "CustomMessage01": "Erro ao salvar palavras na coleção",
+            "CustomMessage02": "Erro ao obter suas palavras salvas",
+            "CustomMessage03": "Escolha ao menos uma palavra",
+            "CustomMessage04": "Palavra(s) adicionada(s)"
         }
     ]
 }

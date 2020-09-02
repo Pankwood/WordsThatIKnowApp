@@ -19,15 +19,17 @@ const StyledBurger = styled.div`
     height: 0.25rem;
     background-color: ${({ open }) => open ? 'var(--grayLight)' : 'var(--blackLighter)'};
     border-radius: 10px;
+    transform-origin: 1px;
     transition: transform .3s ease-in-out;
     &:nth-child(1) {
-      transform: ${({ open }) => open ? 'rotate(-360deg)' : 'rotate(360deg)'};
+      transform: ${({ open }) => open ? 'rotate(405deg)' : 'rotate(0)'};
     }
     &:nth-child(2) {
       transform: ${({ open }) => open ? 'rotate(-360deg)' : 'rotate(360deg)'};
+      opacity: ${({ open }) => open ? 0 : 1};
     }
     &:nth-child(3) {
-      transform: ${({ open }) => open ? 'rotate(-360deg)' : 'rotate(360deg)'};
+      transform: ${({ open }) => open ? 'rotate(-405deg)' : 'rotate(360deg)'};
     }
   }
 `;

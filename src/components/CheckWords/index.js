@@ -86,7 +86,7 @@ function CheckWords() {
             </>
             <>
                 {categories.length > 0 && (
-                    <h3 title="Check the words you already know">{Content.language[locale].CheckWords_SecondStep_content}</h3>
+                    <h3 title={Content.language[locale].CheckWords_SecondStep_title}>{Content.language[locale].CheckWords_SecondStep_content}</h3>
                 )}
                 {
                     categories.map((item, index) =>

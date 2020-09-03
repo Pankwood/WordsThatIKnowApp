@@ -20,8 +20,6 @@
     "toasted-notes": "^3.2.0"
   },
   "scripts": {
-    "server": "json-server --watch db.json --port 8080",
-    "dev": "concurrently \"react-scripts start --port 3001\" \"npm run server\"",
     "start": "react-scripts start",
     "build": "REACT_APP_GIT_SHA=`git rev-parse --short HEAD` react-scripts build",
     "test": "react-scripts test",

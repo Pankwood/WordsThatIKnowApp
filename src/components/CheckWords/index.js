@@ -8,16 +8,17 @@ import Content from '../../data/Content/content.json';
 import './style.css';
 
 function CheckWords() {
-    const defaultValues = { name: "" };
+    const defaultValues = { word: "" };
     const [locale] = React.useContext(LocaleContext);
-    const [categories, setCategories] = useState([]);
+    const [listOfWords, setlistOfWords] = useState([]);
     const [values, setValues] = useState(defaultValues);
     const [compareWords, setCompareWords] = useState([]);
     const { handleSubmit, register, errors } = useForm();
     const onSubmit = values => {
-        categories.pop();
-        setCategories([...categories, values]);
-        setValues(defaultValues);
+        listOfWords.pop();
+        values.word = removeSpecialCharacters(values.word);
+        setlistOfWords([...listOfWords, values]);
+        clearForm();
         wordsRepository
             .getAll()
             .then((values) => {
@@ -28,7 +29,15 @@ function CheckWords() {
             });
     }
 
-    function getWords() {
+    function removeSpecialCharacters(value) {
+        return value.replace(/\s+/g, " ").replace(/[!?@#$%^&*()+-,.;:'"`\\|]/g, "").trim();
+    }
+
+    function clearForm() {
+        setValues(defaultValues);
+    }
+
+    function getCheckedWordsFromForm() {
         const words = document.forms[1];
         var wordsArray = [];
         for (var i = 0; i < words.length; i++) {
@@ -41,7 +50,7 @@ function CheckWords() {
 
     function handlePostSubmit(params) {
         params.preventDefault();
-        const words = getWords();
+        const words = getCheckedWordsFromForm();
         wordsRepository.create(words)
             .then(() => {
 
@@ -73,8 +82,8 @@ function CheckWords() {
                         error={errors.email && errors.email.message}
                         label={Content.language[locale].CheckWords_FirstStep_title}
                         type="textarea"
-                        name="name"
-                        value={values.name}
+                        name="word"
+                        value={values.word}
                         onChange={handleChange}
                         register={register({
                             required: "Required"
@@ -85,27 +94,27 @@ function CheckWords() {
                 </form>
             </>
             <>
-                {categories.length > 0 && (
+                {listOfWords.length > 0 && (
                     <h3 title={Content.language[locale].CheckWords_SecondStep_title}>{Content.language[locale].CheckWords_SecondStep_content}</h3>
                 )}
                 {
-                    categories.map((item, index) =>
+                    listOfWords.map((item, index) =>
                         <form onSubmit={handlePostSubmit} key="formPost">
                             <ul key={`${item}${index}`} className="ks-cboxtags">
                                 {
-                                    item.name.split(" ").map((sub, subindex) =>
-                                        <li key={`${sub}${subindex}`}> {
+                                    item.word.split(" ").map((subItem, subItemIndex) =>
+                                        <li key={`${subItem}${subItemIndex}`}> {
                                             <>
-                                                {compareWords.includes(sub.trim())
+                                                {compareWords.includes(subItem.trim())
                                                     ?
                                                     <>
-                                                        <input type="checkbox" id={`${sub}${subindex}`} name="ckbWord" value={sub} defaultChecked></input>
-                                                        <label htmlFor={`${sub}${subindex}`}> {sub}</label>
+                                                        <input type="checkbox" id={`${subItem}${subItemIndex}`} name="ckbWord" value={subItem} defaultChecked></input>
+                                                        <label htmlFor={`${subItem}${subItemIndex}`}> {subItem}</label>
                                                     </>
                                                     :
                                                     <>
-                                                        <input type="checkbox" id={`${sub}${subindex}`} name="ckbWord" value={sub}></input>
-                                                        <label htmlFor={`${sub}${subindex}`}> {sub}</label>
+                                                        <input type="checkbox" id={`${subItem}${subItemIndex}`} name="ckbWord" value={subItem}></input>
+                                                        <label htmlFor={`${subItem}${subItemIndex}`}> {subItem}</label>
                                                     </>
                                                 }
                                             </>

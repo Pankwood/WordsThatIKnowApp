@@ -1,9 +1,11 @@
-import React from 'react';
-import VideoIframeResponsive from './components/VideoIframeResponsive';
+import React, { lazy, Suspense } from 'react';
 import { BannerMainContainer, ContentAreaContainer, WatchButton } from './styles';
 import BackgroundMain from '../../assets/img/BackgroundMainSmall.jpg';
 import Content from '../../data/Content/content.json';
 import { LocaleContext } from '../../LocaleContext';
+
+const VideoIframeResponsive = lazy(() => import('./components/VideoIframeResponsive'));
+const renderLoader = () => <p>Loading...</p>;
 
 function getYouTubeId(youtubeURL) {
   return youtubeURL
@@ -35,9 +37,12 @@ export default function BannerMain({
         </ContentAreaContainer.Item>
 
         <ContentAreaContainer.Item>
-          <VideoIframeResponsive
-            youtubeID={youTubeID}
-          />
+          <Suspense fallback={renderLoader()}>
+            <VideoIframeResponsive
+              youtubeID={youTubeID}
+            />
+
+          </Suspense>
           <WatchButton>
             {Content.language[locale].Banner_button}
           </WatchButton>

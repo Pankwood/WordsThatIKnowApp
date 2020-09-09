@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const ErrorSpan = styled.span`
 color: #2a7ae4;
@@ -63,6 +63,17 @@ const Input = styled.input`
   &:focus:not([type="color"]) + ${Label.Text} {
     transform: scale(0.6) translateY(-10px);
   }
+  ${({ value }) => {
+    const hasValue = value.length > 0;
+    return (
+      hasValue &&
+      css`
+        &:not([type="color"]) + ${Label.Text} {
+          transform: scale(0.6) translateY(-10px);
+        }
+      `
+    );
+  }}
 `;
 
 function FormField({ label, type, name, value, onChange, register, error }) {

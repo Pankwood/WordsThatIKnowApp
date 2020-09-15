@@ -74,6 +74,18 @@ const Input = styled.input`
   &:not([value=""]):not([type="textarea"]) + ${Label.Text} {
     transform: scale(0.6) translateY(-10px);
   }
+  &:-webkit-autofill {
+    -webkit-text-fill-color: #f5f5f5;
+    -webkit-box-shadow: 0 0 0 1000px var(--blackLighter) inset;
+    border-top-color: var(--blackLighter);
+    transition: background-color 0s 50000s;
+  }
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f5f5f5;
+    -webkit-box-shadow: 0 0 0 1000px var(--blackLighter) inset;
+    border-top-color: var(--blackLighter);
+    transition: background-color 0s 50000s;
+  }
 `;
 
 function FormField({ label, type, name, value, onChange, register, error }) {

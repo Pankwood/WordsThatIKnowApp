@@ -17,6 +17,7 @@ function CheckWords() {
     const onSubmit = values => {
         listOfWords.pop();
         values.word = removeSpecialCharacters(values.word);
+        easterEgg(values.word);
         setlistOfWords([...listOfWords, values]);
         clearForm();
         wordsRepository
@@ -31,6 +32,12 @@ function CheckWords() {
 
     function removeSpecialCharacters(value) {
         return value.replace(/\s+/g, " ").replace(/[!?@#$%^&*()+-,.;:'"`\\|]/g, "").trim();
+    }
+
+    function easterEgg(words) {
+        if (words.includes("Okey Dokey")) {
+            document.querySelector('#marioScreen').style.display = 'block';
+        }
     }
 
     function clearForm() {

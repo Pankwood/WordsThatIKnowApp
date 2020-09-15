@@ -64,3 +64,25 @@ ul.ks-cboxtags li input[type="checkbox"] {
 ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border: 2px solid var(--white);
 }
+
+@keyframes marioAnimation {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+#marioScreen {
+  background-image: url('https://media.giphy.com/media/PTFRmGOgiPUS4/giphy.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+  opacity: 0;
+  display: none;
+  animation-name: marioAnimation;
+  animation-duration: 10s;
+  z-index: 999;
+}

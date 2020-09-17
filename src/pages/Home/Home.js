@@ -10,6 +10,7 @@ function Home() {
 
   return (
     <PageDefault>
+      <div id="marioScreen"></div>
       <BannerMain
         videoTitle={Content.language[locale].Home_title}
         url={Content.language[locale].Home_video}

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const ErrorSpan = styled.span`
@@ -115,15 +114,6 @@ function FormField({ label, type, name, value, onChange, register, error }) {
 FormField.defaultProps = {
   type: "text",
   value: "",
-};
-
-FormField.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  register: PropTypes.func
 };
 
 export default FormField;

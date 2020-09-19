@@ -26,8 +26,7 @@ ContentAreaContainer.Item = styled.div`
 
 ContentAreaContainer.Category = styled.h1`
   font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 60px;
   line-height: 70px;
   display: flex;

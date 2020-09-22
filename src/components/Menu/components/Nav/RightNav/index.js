@@ -59,6 +59,9 @@ const RightNav = ({ open }) => {
           <Link className="RightNav" to="/contact"> {Content.language[locale].Navigation_menu2}</Link>
         </li>
         <li>
+          <Link className="RightNav" to="/login">{Content.language[locale].Login_title}</Link>
+        </li>
+        <li>
           <img className="RightNav" src={flagca} alt="English" title="English" onClick={() => setLocale(0)} onMouseLeave={handleMouseLeave} />
         </li>
         <li>

@@ -41,6 +41,7 @@ const Input = styled.input`
   color: #f5f5f5;
   display: block;
   width: 100%;
+  max-width: 35vmax;
   height: 57px;
   font-size: 18px;
 

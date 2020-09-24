@@ -13,6 +13,18 @@ const FormFieldWrapper = styled.div`
   }
   input[type="color"] {
     padding-left: 67px;
+  } 
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  @media (min-width: 801px) and (max-width: 1399px) {
+    width: 45%;
+  }
+
+  @media (min-width: 1400px) {
+    width: 33%;
   }
 `;
 
@@ -41,7 +53,7 @@ const Input = styled.input`
   color: #f5f5f5;
   display: block;
   width: 100%;
-  max-width: 35vmax;
+  /* max-width: 35vmax; */
   height: 57px;
   font-size: 18px;
 
@@ -62,9 +74,9 @@ const Input = styled.input`
   &:focus:not([type="color"]) + ${Label.Text} {
     transform: scale(0.6) translateY(-10px);
   }
-  &:empty:not([type="text"]) + ${Label.Text} {
+  /* &:empty:not([type="text"]) + ${Label.Text} {
     transform: scale(1) translateY(0);
-  }
+  } */
   &:not(:empty):not([type="text"]) + ${Label.Text} {
     transform: scale(0.6) translateY(-10px);
   }
@@ -77,21 +89,39 @@ const Input = styled.input`
   &:-webkit-autofill {
     -webkit-text-fill-color: #f5f5f5;
     -webkit-box-shadow: 0 0 0 1000px var(--blackLighter) inset;
+    box-shadow: 0 0 0 1000px var(--blackLighter) inset;
     border-top-color: var(--blackLighter);
     transition: background-color 0s 50000s;
   }
   &:-webkit-autofill:focus {
     -webkit-text-fill-color: #f5f5f5;
     -webkit-box-shadow: 0 0 0 1000px var(--blackLighter) inset;
+    box-shadow: 0 0 0 1000px var(--blackLighter) inset;
     border-top-color: var(--blackLighter);
     transition: background-color 0s 50000s;
   }
+`;
+
+const VisibleToggle = styled.div`
+    top: 37%;
+    right: 20px;
+    position: absolute;
 `;
 
 function FormField({ label, type, name, value, onChange, register, error }) {
   const isTypeTextArea = type === "textarea";
   const tag = isTypeTextArea ? "textarea" : "input";
 
+  const togglePasswordVisiblity = () => {
+    if (document.getElementsByName('password')[0].type === "password") {
+      document.getElementsByName('password')[0].setAttribute('type', 'text');
+      document.getElementById('eye').className = 'fas fa-eye-slash';
+    }
+    else {
+      document.getElementsByName('password')[0].setAttribute('type', 'password');
+      document.getElementById('eye').className = 'fas fa-eye';
+    }
+  };
   return (
     <>
       <ErrorSpan>{error}</ErrorSpan>
@@ -106,6 +136,7 @@ function FormField({ label, type, name, value, onChange, register, error }) {
             ref={register}
           />
           <Label.Text>{label}</Label.Text>
+          {type === "password" && <VisibleToggle><i id="eye" onClick={togglePasswordVisiblity} className='fas fa-eye'></i></VisibleToggle>}
         </Label>
       </FormFieldWrapper>
     </>

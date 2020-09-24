@@ -30,6 +30,7 @@ function Login(params) {
     function handleChange(params) {
         setValue(params.target.getAttribute("name"), params.target.value);
     }
+
     return (
         <PageDefault>
             <h1>{Content.language[locale].Login_title}</h1>
@@ -52,6 +53,7 @@ function Login(params) {
                     })}
                 />
 
+
                 <FormField
                     error={errors.password && errors.password.message}
                     label={Content.language[locale].Contact_Form_password}
@@ -63,7 +65,6 @@ function Login(params) {
                         required: Content.language[locale].Contact_Form_erro4
                     })}
                 />
-
 
                 <Button>{Content.language[locale].Login_button}</Button>
             </form>

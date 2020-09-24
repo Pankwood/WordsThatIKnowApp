@@ -22,7 +22,7 @@ const Ul = styled.ul`
     width: auto;
     cursor: pointer;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     flex-flow: column nowrap;
     background-color: var(--black);
     position: fixed;

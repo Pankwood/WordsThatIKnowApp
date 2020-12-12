@@ -7,6 +7,7 @@ import { LocaleContext } from "../../LocaleContext";
 import Content from '../../data/Content/content.json';
 import { useForm } from "react-hook-form";
 import './index.css';
+import usersRepository from '../../components/repositories/users';
 
 
 function Signup() {
@@ -30,6 +31,13 @@ function Signup() {
     const { handleSubmit, register, errors, watch } = useForm();
     const onSubmit = values => {
         console.log(values);
+        usersRepository.register(values)
+            .then(() => {
+
+            })
+            .catch(() => {
+
+            });
         setValues(defaultValues);
     }
 

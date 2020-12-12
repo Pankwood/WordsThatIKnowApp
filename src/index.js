@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact";
 import { LocaleContextProvider } from "./LocaleContext.js";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 ReactDOM.render(
   <LocaleContextProvider>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
         <Route path="/" component={Home} exact />
         {/*<Route component={() => <div>Page 404</div>} />*/}
         <Route component={Page404} />

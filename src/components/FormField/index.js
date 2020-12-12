@@ -108,20 +108,19 @@ const VisibleToggle = styled.div`
     position: absolute;
 `;
 
-function FormField({ label, type, name, value, onChange, register, error }) {
+function FormField({ label, type, name, value, onChange, register, error, passwordFieldIndex }) {
   const isTypeTextArea = type === "textarea";
   const tag = isTypeTextArea ? "textarea" : "input";
 
-  const togglePasswordVisiblity = () => {
-    if (document.getElementsByName('password')[0].type === "password") {
-      document.getElementsByName('password')[0].setAttribute('type', 'text');
-      document.getElementById('eye').className = 'fas fa-eye-slash';
-    }
-    else {
-      document.getElementsByName('password')[0].setAttribute('type', 'password');
-      document.getElementById('eye').className = 'fas fa-eye';
-    }
-  };
+  const togglePasswordVisiblity = (() => {
+
+    const inputNameStartWithPassword = document.querySelectorAll("[name^=password]");
+    const isTypePassword = inputNameStartWithPassword[passwordFieldIndex].type === "password";
+    inputNameStartWithPassword[passwordFieldIndex].setAttribute('type', (isTypePassword) ? 'text' : 'password');
+    document.getElementById(`eye${passwordFieldIndex}`).className = (isTypePassword) ? 'fas fa-eye-slash' : 'fas fa-eye';
+
+  });
+
   return (
     <>
       <ErrorSpan>{error}</ErrorSpan>
@@ -134,9 +133,10 @@ function FormField({ label, type, name, value, onChange, register, error }) {
             name={name}
             onChange={onChange}
             ref={register}
+            passwordFieldIndex={passwordFieldIndex}
           />
           <Label.Text>{label}</Label.Text>
-          {type === "password" && <VisibleToggle><i id="eye" onClick={togglePasswordVisiblity} className='fas fa-eye'></i></VisibleToggle>}
+          {type === "password" && <VisibleToggle><i id={`eye${passwordFieldIndex}`} onClick={togglePasswordVisiblity} className='fas fa-eye'></i></VisibleToggle>}
         </Label>
       </FormFieldWrapper>
     </>

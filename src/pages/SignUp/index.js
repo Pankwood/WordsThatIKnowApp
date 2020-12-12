@@ -11,6 +11,8 @@ import './index.css';
 
 function Signup() {
     const defaultValues = {
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
         passwordConfirmation: "",
@@ -36,7 +38,33 @@ function Signup() {
     }
     return (
         <PageDefault>
+            <h1>{Content.language[locale].SignUp_title}</h1>
+
             <form onSubmit={handleSubmit(onSubmit)}>
+                <FormField
+                    error={errors.firstName && errors.firstName.message}
+                    label={Content.language[locale].Contact_Form_firstName}
+                    type="text"
+                    name="firstName"
+                    value={values.firstName}
+                    onChange={handleChange}
+                    register={register({
+                        required: Content.language[locale].Contact_Form_erro1,
+                    })}
+                />
+
+                <FormField
+                    error={errors.lastName && errors.lastName.message}
+                    label={Content.language[locale].Contact_Form_lastName}
+                    type="text"
+                    name="lastName"
+                    value={values.lastName}
+                    onChange={handleChange}
+                    register={register({
+                        required: Content.language[locale].Contact_Form_erro1,
+                    })}
+                />
+
                 <FormField
                     error={errors.email && errors.email.message}
                     label={Content.language[locale].Contact_Form_email}

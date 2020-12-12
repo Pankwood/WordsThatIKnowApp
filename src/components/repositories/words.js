@@ -39,8 +39,7 @@ async function create(params) {
         }).then((response) => {
             if (response.ok) {
                 CustomNotification(Content.language[locale].CustomMessage04, "success");
-                const resposta = response.json();
-                return resposta;
+                return response.json();
             }
             else {
                 CustomNotification(Content.language[locale].CustomMessage01, "error");
